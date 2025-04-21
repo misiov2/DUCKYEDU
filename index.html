@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUCKY EDU - Polski, Angielski, Matma dla 8 Klasy</title>
+
+    <!-- Czcionka Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Ikony Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <!-- Link do pliku CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1><i class="fa-solid fa-duck"></i> DUCKY EDU</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#recommended" id="nav-recommended-link"><i class="fas fa-fire"></i> Polecane</a></li>
+                <li><a href="#notes" id="nav-notes-link"><i class="fas fa-sticky-note"></i> Notatki</a></li>
+                <li><a href="#photos" id="nav-photos-link"><i class="fas fa-images"></i> Grafiki</a></li>
+                <li><a href="#school-tok" id="nav-school-tok-link"><i class="fa-solid fa-film"></i> School Tok</a></li>
+                <li><a href="#fun-facts" id="nav-fun-facts-link"><i class="fas fa-lightbulb"></i> Ciekawostki</a></li>
+                <li><a href="#leaks" id="nav-leaks-link"><i class="fas fa-user-secret"></i> Wskazówki E8</a></li>
+                <li><a href="#your-notes" id="nav-your-notes-link"><i class="fas fa-book-reader"></i> Twoje Notatki</a></li>
+                <li><a href="#search" id="nav-search-link"><i class="fas fa-search"></i> Szukaj</a></li>
+            </ul>
+        </nav>
+        <div class="search-container" id="search-section">
+            <input type="search" id="search-input" placeholder="Szukaj (Pol, Ang, Mat)...">
+            <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <main id="content-area">
+
+        <!-- =======================
+             Sekcja "Polecane"
+             ======================= -->
+        <section id="recommended" class="content-section active">
+            <h2>Polecane Materiały 🔥</h2>
+            <div class="filter-bar">
+                <button class="filter-btn active" data-subject="all">Wszystkie</button>
+                <button class="filter-btn" data-subject="polski">Polski</button>
+                <button class="filter-btn" data-subject="angielski">Angielski</button>
+                <button class="filter-btn" data-subject="matematyka">Matematyka</button>
+            </div>
+
+            <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x700/FFA500/000000?text=Matematyka:+Tw.+Pitagorasa" alt="Twierdzenie Pitagorasa">
+                <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Pamiętaj o twierdzeniu Pitagorasa (a² + b² = c²)! Kluczowe w zadaniach z trójkątami prostokątnymi. Sprawdź przykłady!</p>
+                    <button class="save-note-btn" data-content="Matematyka: Twierdzenie Pitagorasa (a²+b²=c²)">Zapisz notatkę</button>
+                </div>
+            </article>
+            <article class="post clickable" data-subject="polski">
+                 <img src="https://via.placeholder.com/500x700/3498DB/FFFFFF?text=Polski:+Kamienie+na+Szaniec" alt="Kamienie na Szaniec - Bohaterowie">
+                 <div class="post-content">
+                    <p class="description"><strong>Polski:</strong> Główne cechy Alka, Rudego i Zośki z "Kamieni na szaniec". Przyjaźń, odwaga, patriotyzm - ważne motywy na E8.</p>
+                    <button class="save-note-btn" data-content="Polski: Kamienie na Szaniec - Alek, Rudy, Zośka">Zapisz notatkę</button>
+                </div>
+            </article>
+            <article class="post clickable" data-subject="angielski">
+                <img src="https://via.placeholder.com/500x700/2ECC71/000000?text=Angielski:+Present+Perfect+Usage" alt="Present Perfect Usage">
+                <div class="post-content">
+                   <p class="description"><strong>Angielski:</strong> Present Perfect vs Past Simple - kluczowa różnica! Kiedy używać którego czasu? Zobacz przykłady zdań i typowe błędy.</p>
+                   <button class="save-note-btn" data-content="Angielski: Present Perfect vs Past Simple - różnice">Zapisz notatkę</button>
+               </div>
+           </article>
+           <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x700/E74C3C/FFFFFF?text=Matematyka:+Procenty" alt="Obliczenia Procentowe">
+                <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Obniżki, podwyżki, obliczanie procentu danej liczby - to musisz umieć! Przećwicz zadania tekstowe z procentami.</p>
+                    <button class="save-note-btn" data-content="Matematyka: Zadania z procentami - obniżki, podwyżki">Zapisz notatkę</button>
+                </div>
+            </article>
+            <!--
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            !!! DODAJ TUTAJ OKOŁO 35-40 WIĘCEJ POSTÓW POLECANYCH           !!!
+            !!! Pamiętaj o dodaniu data-subject="polski/angielski/matematyka" !!!
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            -->
+        </section>
+
+        <!-- =======================
+             Sekcja "Notatki"
+             ======================= -->
+        <section id="notes" class="content-section">
+             <h2>Notatki 📝</h2>
+             <div class="filter-bar">
+                 <button class="filter-btn active" data-subject="all">Wszystkie</button>
+                 <button class="filter-btn" data-subject="polski">Polski</button>
+                 <button class="filter-btn" data-subject="angielski">Angielski</button>
+                 <button class="filter-btn" data-subject="matematyka">Matematyka</button>
+             </div>
+
+             <article class="post clickable" data-subject="angielski">
+                <img src="https://via.placeholder.com/500x350/2ABC9C/FFFFFF?text=Angielski:+Reported+Speech" alt="Reported Speech Rules">
+                 <div class="post-content">
+                    <p class="description"><strong>Angielski:</strong> Mowa zależna (Reported Speech) - jak zmieniać czasy, zaimki i określenia czasu? Kluczowe zasady i przykłady transformacji zdań.</p>
+                     <button class="save-note-btn" data-content="Angielski: Mowa zależna (Reported Speech) - zasady">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x350/E74C3C/FFFFFF?text=Matematyka:+Wyrażenia+Algebraiczne" alt="Redukcja Wyrazów Podobnych">
+                 <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Upraszczanie wyrażeń algebraicznych - redukcja wyrazów podobnych, mnożenie sum algebraicznych. Krok po kroku.</p>
+                     <button class="save-note-btn" data-content="Matematyka: Upraszczanie wyrażeń algebraicznych">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="polski">
+                <img src="https://via.placeholder.com/500x350/F39C12/000000?text=Polski:+Środki+Stylistyczne" alt="Środki Stylistyczne">
+                 <div class="post-content">
+                    <p class="description"><strong>Polski:</strong> Metafora, epitet, porównanie, anafora, pytanie retoryczne... Jak rozpoznać i nazwać środki stylistyczne w tekście?</p>
+                     <button class="save-note-btn" data-content="Polski: Środki stylistyczne - rozpoznawanie">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="angielski">
+                <img src="https://via.placeholder.com/500x350/3498DB/FFFFFF?text=Angielski:+Conditional+1" alt="First Conditional">
+                 <div class="post-content">
+                    <p class="description"><strong>Angielski:</strong> Pierwszy okres warunkowy (First Conditional) - struktura 'If + Present Simple, will + bezokolicznik'. Kiedy go używamy? Przykłady sytuacji.</p>
+                     <button class="save-note-btn" data-content="Angielski: Pierwszy okres warunkowy (Conditional 1)">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x350/9B59B6/FFFFFF?text=Matematyka:+Równania" alt="Rozwiązywanie Równań Liniowych">
+                 <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Rozwiązywanie równań pierwszego stopnia z jedną niewiadomą. Przenoszenie wyrazów, redukcja, sprawdzanie rozwiązania.</p>
+                     <button class="save-note-btn" data-content="Matematyka: Rozwiązywanie równań liniowych">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="polski">
+                 <img src="https://via.placeholder.com/500x350/1ABC9C/000000?text=Polski:+Balladyna+-+Motywy" alt="Balladyna - Motywy">
+                 <div class="post-content">
+                     <p class="description"><strong>Polski:</strong> Główne motywy w "Balladynie" Słowackiego: władza, zbrodnia, kara, wina, miłość, natura. Jak je omówić?</p>
+                     <button class="save-note-btn" data-content="Polski: Balladyna - główne motywy">Zapisz notatkę</button>
+                 </div>
+             </article>
+            <!--
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            !!! DODAJ TUTAJ OKOŁO 35-40 WIĘCEJ POSTÓW Z NOTATKAMI           !!!
+            !!! Pamiętaj o dodaniu data-subject="polski/angielski/matematyka" !!!
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            -->
+        </section>
+
+        <!-- =======================
+             Sekcja "Grafiki"
+             ======================= -->
+        <section id="photos" class="content-section">
+            <h2>Grafiki i Schematy 🖼️</h2>
+             <div class="filter-bar">
+                 <button class="filter-btn active" data-subject="all">Wszystkie</button>
+                 <button class="filter-btn" data-subject="polski">Polski</button>
+                 <button class="filter-btn" data-subject="angielski">Angielski</button>
+                 <button class="filter-btn" data-subject="matematyka">Matematyka</button>
+             </div>
+
+            <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x500/9B59B6/FFFFFF?text=Matematyka:+Wzory+-+Pola+Figur" alt="Wzory na Pola Figur Płaskich">
+                 <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Graficzne zestawienie wzorów na pola figur płaskich: kwadratu, prostokąta, trójkąta, rombu, równoległoboku, trapezu.</p>
+                    <button class="save-note-btn" data-content="Matematyka: Wzory - pola figur płaskich (grafika)">Zapisz notatkę</button>
+                </div>
+            </article>
+            <article class="post clickable" data-subject="polski">
+                <img src="https://via.placeholder.com/500x500/1ABC9C/FFFFFF?text=Polski:+Mapa+Myśli+-+Rozbiór+Zdania" alt="Mapa Myśli Rozbiór Zdania">
+                 <div class="post-content">
+                    <p class="description"><strong>Polski:</strong> Mapa myśli ułatwiająca rozbiór logiczny zdania pojedynczego - podmiot, orzeczenie, przydawka, dopełnienie, okolicznik.</p>
+                    <button class="save-note-btn" data-content="Polski: Mapa myśli - rozbiór logiczny zdania">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="angielski">
+                <img src="https://via.placeholder.com/500x500/F1C40F/000000?text=Angielski:+Irregular+Verbs+Mind+Map" alt="Mapa Myśli Czasowniki Nieregularne">
+                 <div class="post-content">
+                    <p class="description"><strong>Angielski:</strong> Mapa myśli grupująca popularne czasowniki nieregularne według wzorców zmian (np. i-a-u: sing-sang-sung).</p>
+                    <button class="save-note-btn" data-content="Angielski: Mapa myśli - czasowniki nieregularne">Zapisz notatkę</button>
+                </div>
+            </article>
+            <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x500/E67E22/FFFFFF?text=Matematyka:+Wykres+Funkcji+Liniowej" alt="Jak narysować wykres funkcji liniowej">
+                 <div class="post-content">
+                    <p class="description"><strong>Matematyka:</strong> Jak krok po kroku narysować wykres funkcji liniowej y = ax + b? Znajdowanie punktów, rysowanie prostej.</p>
+                    <button class="save-note-btn" data-content="Matematyka: Rysowanie wykresu funkcji liniowej (grafika)">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="polski">
+                <img src="https://via.placeholder.com/500x500/3498DB/FFFFFF?text=Polski:+Rodzaje+Literackie+Diagram" alt="Diagram Rodzaje i Gatunki Literackie">
+                 <div class="post-content">
+                    <p class="description"><strong>Polski:</strong> Schemat przedstawiający podział na rodzaje literackie (liryka, epika, dramat) i przykładowe gatunki.</p>
+                    <button class="save-note-btn" data-content="Polski: Rodzaje i gatunki literackie (schemat)">Zapisz notatkę</button>
+                </div>
+            </article>
+            <!--
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            !!! DODAJ TUTAJ OKOŁO 35-40 WIĘCEJ POSTÓW Z GRAFIKAMI          !!!
+            !!! Pamiętaj o dodaniu data-subject="polski/angielski/matematyka" !!!
+            !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            -->
+        </section>
+
+        <!-- =======================
+             Sekcja "School Tok"
+             ======================= -->
+        <section id="school-tok" class="content-section">
+            <h2>School Tok <i class="fa-solid fa-film"></i></h2>
+            <div id="school-tok-feed">
+                <p class="loading-placeholder">Ładowanie School Toka...</p>
+            </div>
+        </section>
+
+        <!-- =======================
+             Sekcja "Ciekawostki"
+             ======================= -->
+        <section id="fun-facts" class="content-section">
+            <h2>Ciekawostki ✨</h2>
+             <article class="post fun-fact-post clickable" data-subject="matematyka">
+                 <div class="post-content">
+                     <i class="fas fa-infinity fun-fact-icon"></i>
+                    <p class="description"><strong>Ciekawostka Mat.:</strong> Czy wiesz, że zero (0) jako liczba z własnymi prawami zostało "wynalezione" w Indiach dopiero około V wieku n.e.?</p>
+                     <button class="save-note-btn" data-content="Ciekawostka Mat.: Wynalezienie zera">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post fun-fact-post clickable" data-subject="angielski">
+                 <div class="post-content">
+                     <i class="fas fa-language fun-fact-icon"></i>
+                    <p class="description"><strong>Ciekawostka Ang.:</strong> Najkrótsze pełne zdanie w języku angielskim to "Go!".</p>
+                     <button class="save-note-btn" data-content="Ciekawostka Ang.: Najkrótsze zdanie 'Go!'">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post fun-fact-post clickable" data-subject="polski">
+                 <div class="post-content">
+                     <i class="fas fa-pen-nib fun-fact-icon"></i>
+                    <p class="description"><strong>Ciekawostka Pol.:</strong> Adam Mickiewicz pisał "Pana Tadeusza" na emigracji w Paryżu, tęskniąc za ojczyzną.</p>
+                     <button class="save-note-btn" data-content="Ciekawostka Pol.: 'Pan Tadeusz' pisany w Paryżu">Zapisz notatkę</button>
+                </div>
+            </article>
+            <!-- Możesz dodać więcej ciekawostek -->
+        </section>
+
+        <!-- =======================
+             Sekcja "Wskazówki E8"
+             ======================= -->
+        <section id="leaks" class="content-section">
+             <h2>Wskazówki Egzaminacyjne E8 🤫</h2>
+             <article class="post clickable" data-subject="polski">
+                <img src="https://via.placeholder.com/500x150/F1C40F/000000?text=Wskazówka+E8+Polski" alt="Wskazówka Egzaminacyjna Polski">
+                 <div class="post-content">
+                    <p class="description"><strong>Wskazówka E8 Polski:</strong> W rozprawce pamiętaj o czytelnej tezie, logicznych argumentach popartych przykładami z lektur (obowiązkowych i innych!) oraz podsumowaniu.</p>
+                     <button class="save-note-btn" data-content="Wskazówka E8 Polski: Struktura rozprawki">Zapisz notatkę</button>
+                </div>
+            </article>
+            <article class="post clickable" data-subject="matematyka">
+                <img src="https://via.placeholder.com/500x150/E67E22/FFFFFF?text=Wskazówka+E8+Matma" alt="Wskazówka Egzaminacyjna Matematyka">
+                 <div class="post-content">
+                    <p class="description"><strong>Wskazówka E8 Matma:</strong> Zawsze sprawdzaj jednostki w zadaniach tekstowych! Czasem trzeba je zamienić (np. metry na centymetry, godziny na minuty).</p>
+                     <button class="save-note-btn" data-content="Wskazówka E8 Matma: Sprawdzaj jednostki!">Zapisz notatkę</button>
+                </div>
+            </article>
+             <article class="post clickable" data-subject="angielski">
+                <img src="https://via.placeholder.com/500x150/2980B9/FFFFFF?text=Wskazówka+E8+Angielski" alt="Wskazówka Egzaminacyjna Angielski">
+                 <div class="post-content">
+                    <p class="description"><strong>Wskazówka E8 Angielski:</strong> W zadaniach na słuchanie najpierw przeczytaj pytania i opcje odpowiedzi, aby wiedzieć, na co zwracać uwagę.</p>
+                     <button class="save-note-btn" data-content="Wskazówka E8 Angielski: Słuchanie - czytaj pytania">Zapisz notatkę</button>
+                </div>
+            </article>
+             <!-- Dodaj więcej wskazówek -->
+        </section>
+
+        <!-- =======================
+             Sekcja "Twoje Notatki"
+             ======================= -->
+        <section id="your-notes" class="content-section">
+            <h2>Twoje Zapisane Notatki <i class="fas fa-save"></i></h2>
+            <div id="your-notes-list">
+                <p>Nie masz jeszcze zapisanych żadnych notatek.</p>
+            </div>
+            <button id="clear-notes-btn">Wyczyść wszystkie moje notatki</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2023-2024 DUCKY EDU | Polski - Angielski - Matematyka dla 8 Klasy</p>
+        <p>Pamiętaj: treści są przykładowe, zweryfikuj je z aktualną podstawą programową E8!</p>
+    </footer>
+
+    <!-- =======================
+         Modal (okno dialogowe)
+         ======================= -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <div id="modal-post-content">
+                <!-- Zawartość wstawiana przez JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Link do pliku JavaScript (na końcu body) -->
+    <script src="script.js" defer></script>
+</body>
+</html>

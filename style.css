@@ -1,0 +1,685 @@
+/* =======================
+   Podstawowy Reset i Zmienne
+   ======================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2b2b2b;
+    --text-color: #e0e0e0;
+    --accent-color: #FFA500;
+    --link-hover-color: #FFC55C;
+    --border-color: #444;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --border-radius: 12px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Zapobiega poziomemu przewijaniu */
+}
+
+/* =======================
+   Nagłówek i Nawigacja
+   ======================= */
+header {
+    background-color: var(--secondary-bg);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Lepsze zawijanie na mniejszych ekranach */
+    gap: 10px; /* Odstęp między logo, nav i search */
+}
+
+.logo h1 {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.7em; /* Lekko zmniejszone dla lepszego dopasowania */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap; /* Zapobiega łamaniu logo */
+}
+
+nav {
+    flex-grow: 1; /* Pozwala nawigacji zająć dostępną przestrzeń */
+    min-width: 0; /* Zapobiega wypychaniu przez flex */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie linków */
+    flex-wrap: wrap; /* Zawijanie linków */
+    gap: 10px; /* Zmniejszony odstęp */
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 7px 9px;
+    font-size: 0.9em;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px; /* Mniejszy odstęp ikona-tekst */
+    white-space: nowrap; /* Zapobiega łamaniu linków */
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-bg);
+    border-radius: var(--border-radius);
+    padding: 5px;
+    margin-left: auto; /* Przesuwa wyszukiwarkę w prawo */
+}
+
+#search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    padding: 8px 12px;
+    font-family: var(--font-main);
+    font-size: 0.9em;
+    width: 150px;
+    transition: width 0.3s ease;
+}
+
+#search-input:focus {
+    width: 220px;
+}
+
+#search-button {
+    background: var(--accent-color);
+    border: none;
+    color: var(--primary-bg);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: var(--link-hover-color);
+}
+
+
+/* =======================
+   Główna Treść i Sekcje
+   ======================= */
+main {
+    flex-grow: 1;
+    max-width: 600px;
+    width: 95%; /* Nieco szersze na mniejszych ekranach */
+    margin: 40px auto;
+    padding: 0 10px; /* Mniejszy padding boczny */
+}
+
+.content-section {
+    display: none; /* Ukryte domyślnie */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding-top: 20px;
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.content-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =======================
+   Pasek Filtrów
+   ======================= */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-btn {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    font-size: 0.9em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #3a3a3a;
+    border-color: var(--accent-color);
+}
+
+.filter-btn.active {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border-color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* =======================
+   Styl Postów
+   ======================= */
+.post {
+    background-color: var(--secondary-bg);
+    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    opacity: 0; /* Start dla animacji */
+    transform: translateY(20px); /* Start dla animacji */
+    position: relative;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.2s ease-out; /* Dodano box-shadow do transition */
+}
+
+.post.visible { /* Klasa dodawana przez JS do animacji */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.post.clickable {
+    cursor: pointer;
+}
+
+.post.clickable:hover {
+    /* Hover jest teraz częścią głównego transition .post */
+    box-shadow: 0 6px 20px rgba(255, 165, 0, 0.2);
+    transform: translateY(-3px); /* Lekkie uniesienie na hover */
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Lepsze dopasowanie obrazka */
+}
+
+.post .post-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.post .description {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.post .description strong {
+    color: var(--accent-color); /* Wyróżnienie przedmiotu */
+}
+
+/* Posty typu Ciekawostka */
+.fun-fact-post .post-content {
+    text-align: center;
+}
+
+.fun-fact-icon {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* =======================
+   Przyciski (Zapisz, Usuń, Wyczyść)
+   ======================= */
+.save-note-btn,
+#clear-notes-btn,
+.delete-note-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    border: none;
+    padding: 10px 18px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.save-note-btn:hover,
+#clear-notes-btn:hover,
+.delete-note-btn:hover {
+    background-color: var(--link-hover-color);
+    transform: translateY(-2px);
+}
+
+/* Specyficzne dla przycisków usuwania */
+.delete-note-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    margin-top: 0; /* Reset marginesu */
+}
+.delete-note-btn:hover {
+    background-color: #c0392b;
+}
+
+#clear-notes-btn {
+    background-color: #E74C3C;
+    color: white;
+    display: block;
+    margin: 20px auto 0; /* Odstęp od listy i centrowanie */
+    width: fit-content;
+}
+#clear-notes-btn:hover {
+    background-color: #c0392b;
+}
+
+
+/* =======================
+   Sekcja "Twoje Notatki"
+   ======================= */
+#your-notes-list {
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+.your-note-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color);
+}
+.your-note-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.your-note-item p {
+    margin-bottom: 0; /* Reset marginesu */
+    flex-grow: 1;
+    margin-right: 15px;
+    word-break: break-word; /* Łamanie długich słów */
+}
+
+/* =======================
+   Modal (Okno dialogowe)
+   ======================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* Ciemniejsze tło */
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: var(--secondary-bg);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    max-width: 700px;
+    width: 85%;
+    position: relative;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    max-height: 80vh;
+    overflow-y: auto; /* Tylko pionowe przewijanie w razie potrzeby */
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    line-height: 1; /* Lepsze dopasowanie */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: calc(var(--border-radius) / 2);
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#modal-post-content .description {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+#modal-post-content .description strong {
+    color: var(--accent-color);
+}
+/* Ikony w modalu */
+#modal-post-content .fun-fact-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+
+@keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOutModal { from { opacity: 1; } to { opacity: 0; } }
+
+.modal.fade-out {
+    animation: fadeOutModal 0.3s ease-out forwards;
+}
+
+
+/* =======================
+   Sekcja "School Tok"
+   ======================= */
+#school-tok-feed {
+    max-width: 450px;
+    height: 75vh;
+    margin: 20px auto;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-bg);
+    position: relative; /* Dla placeholdera */
+}
+
+#school-tok-feed .post {
+    scroll-snap-align: start;
+    height: 100%; /* Post zajmuje całą wysokość kontenera */
+    margin-bottom: 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Rozciąga treść */
+    background-color: var(--secondary-bg);
+    border-bottom: 1px solid var(--border-color);
+    opacity: 1; /* Posty w School Tok są od razu widoczne */
+    transform: none; /* Reset transformacji */
+    transition: none; /* Usuń przejścia dla postów w feedzie */
+}
+#school-tok-feed .post:last-child {
+     border-bottom: none;
+}
+
+#school-tok-feed .post img {
+    max-height: 65%;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-radius: 0; /* Usunięcie zaokrąglenia w feedzie */
+}
+
+#school-tok-feed .post .post-content {
+    padding: 15px;
+    overflow-y: auto; /* Przewijanie opisu */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#school-tok-feed .post .description {
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+#school-tok-feed .post .save-note-btn {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    margin-top: auto; /* Przycisk na dole */
+    align-self: flex-start; /* Wyrównanie do lewej */
+}
+
+.loading-placeholder {
+    text-align: center;
+    padding: 50px;
+    color: var(--accent-color);
+    font-style: italic;
+    position: absolute; /* Pozycjonowanie wewnątrz feedu */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Zapobiega za szerokiemu tekstowi */
+}
+
+/* =======================
+   Stopka
+   ======================= */
+footer {
+    background-color: var(--secondary-bg);
+    color: #aaa;
+    text-align: center;
+    padding: 20px 15px; /* Większy padding */
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+footer p {
+    margin-bottom: 5px; /* Mały odstęp między liniami */
+}
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* =======================
+   Responsywność
+   ======================= */
+@media (max-width: 992px) {
+    /* Poprawki dla tabletów i mniejszych laptopów */
+    header {
+        justify-content: space-around; /* Lepsze rozłożenie */
+    }
+     nav ul {
+         gap: 8px; /* Mniejsze odstępy */
+     }
+     nav a {
+         font-size: 0.85em; /* Mniejsza czcionka */
+         padding: 6px 8px;
+     }
+     .search-container {
+         margin-left: 10px; /* Mniejszy margines */
+     }
+     #search-input {
+         width: 130px;
+     }
+     #search-input:focus {
+         width: 180px;
+     }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px; /* Odstęp między wierszami */
+    }
+    nav {
+        order: 2; /* Nawigacja pod logo */
+        width: 100%; /* Pełna szerokość */
+        margin-top: 0;
+    }
+    nav ul {
+        justify-content: center;
+        gap: 8px;
+    }
+    nav a {
+        font-size: 0.9em; /* Przywrócenie lekko większej czcionki na mobilce */
+    }
+    .search-container {
+        order: 3; /* Wyszukiwarka na końcu */
+        margin-left: 0;
+        width: 90%;
+        margin-top: 5px;
+        justify-content: center;
+    }
+    #search-input {
+        flex-grow: 1; /* Rozciąga pole wyszukiwania */
+    }
+     #search-input:focus {
+        width: auto; /* Pozwala flex-grow działać */
+    }
+    .logo {
+        order: 1; /* Logo pierwsze */
+    }
+    .logo h1 { font-size: 1.5em; }
+
+    main {
+        width: 95%;
+        margin: 20px auto;
+    }
+    .content-section h2 { font-size: 1.3em; }
+
+    .filter-bar {
+        gap: 8px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+        padding: 20px;
+        max-height: 75vh;
+    }
+    .close-btn {
+        font-size: 28px;
+        top: 5px;
+        right: 15px;
+    }
+    #school-tok-feed {
+        max-width: 100%; /* Pełna szerokość na mobilce */
+        height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+     /* Dodatkowe poprawki dla bardzo małych ekranów */
+    nav ul {
+        gap: 5px; /* Jeszcze mniejsze odstępy */
+    }
+    nav a {
+        font-size: 0.8em;
+        padding: 5px 7px;
+        gap: 3px;
+    }
+    .logo h1 {
+        font-size: 1.3em;
+        gap: 5px;
+    }
+    .filter-btn {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+    #search-input {
+        font-size: 0.85em;
+        padding: 6px 10px;
+    }
+    #search-button {
+        padding: 6px 10px;
+    }
+    .post .description {
+        font-size: 0.95em;
+    }
+    .save-note-btn, #clear-notes-btn, .delete-note-btn {
+        padding: 8px 14px;
+        font-size: 0.9em;
+    }
+    footer {
+        font-size: 0.8em;
+        padding: 15px 10px;
+    }
+}
+
+/* =======================
+   Style dla powiadomień JS
+   ======================= */
+.feedback-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    padding: 12px 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.4s ease, bottom 0.4s ease;
+    font-weight: 500;
+    text-align: center;
+}
+.feedback-popup.warning { background-color: #e67e22; color: white; }
+.feedback-popup.error { background-color: #e74c3c; color: white; }
+.feedback-popup.visible { opacity: 1; bottom: 30px; }
